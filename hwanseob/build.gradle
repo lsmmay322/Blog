@@ -1,0 +1,41 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.4'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.blog'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Spring boot data JPA
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '10.1.20'
+	implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// Spring boot devtools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	// MySQL
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	// Spring Security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+	// Security Tag libs
+	implementation 'org.springframework.security:spring-security-taglibs:5.8.0'
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
